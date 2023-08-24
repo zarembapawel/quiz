@@ -1,4 +1,4 @@
-package pl.zarembapawel.customers.quiz;
+package pl.zarembapawel.quiz.config;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
