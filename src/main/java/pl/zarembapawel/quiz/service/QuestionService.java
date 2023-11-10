@@ -20,6 +20,11 @@ public class QuestionService {
 
     private ModelMapper mapper;
 
+    public Question getQuestionById(String id) {
+        Optional<QuestionEntity> questionEntity = repository.findById(id);
+        return questionEntity.map(entity -> mapper.map(entity, Question.class)).orElse(null);
+    }
+
     public void addQuestion(Question question) {
         log.info("Adding question: {}", question);
         QuestionEntity entity = mapper.map(question, QuestionEntity.class);

@@ -38,6 +38,12 @@ public class ProfileService {
                      .orElse(null);
     }
 
+    public Profile get(Integer id) {
+        Optional<ProfileEntity> entity = repository.findById(id);
+        return entity.map(profileEntity -> mapper.map(profileEntity, Profile.class))
+                .orElse(null);
+    }
+
     public HttpStatus updateProfilePoints(String name, Integer points) {
         log.info("Updating profile {} points {}", name, points);
         Profile profile = get(name);
